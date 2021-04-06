@@ -77,30 +77,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          {% if posts %}
-            {% for post in posts %}
-              <div class="post-preview">
-                <a href="post.html">
-                  <h2 class="post-title">
-                    {{post.titulo}}
-                  </h2>
-                  <h3 class="post-subtitle">
-                    {{post.descripcion}}
-                  </h3>
-                </a>
-                <p class="post-meta">Escrito por
-                  <a href="#">{{post.autor}}</a>
-                  el {{post.fecha_creacion}}</p>
-              </div>
-              <hr>
-            {% endfor %}
-          {% else %}
-              <h1>No existen post publicados!</h1>
-          {% endif %}
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-          </div>
+          {% block contenido %}
+            {% if posts %}
+              {% for post in posts %}
+                <div class="post-preview">
+                  <a href="{% url 'blog:detalle_post' post.slug %}">
+                    <h2 class="post-title">
+                      {{post.titulo}}
+                    </h2>
+                    <h3 class="post-subtitle">
+                      {{post.descripcion}}
+                    </h3>
+                  </a>
+                  <p class="post-meta">Escrito por
+                    <a href="#">{{post.autor}}</a>
+                    el {{post.fecha_creacion}}</p>
+                </div>
+                <hr>
+              {% endfor %}
+            {% else %}
+                <h1>No existen post publicados!</h1>
+            {% endif %}
+          {% endblock contenido %}
         </div>
       </div>
     </div>
