@@ -9,8 +9,10 @@
   <h2>{{detalle_post.titulo}}</h2>
   <p>{{detalle_post.descripcion}}</p>
   <p>Escrito por: {{detalle_post.autor}}</p>
-
 {% endblock titulo_principal %}
+
+{% block barra_busqueda %}
+{% endblock barra_busqueda %}
 
 {% block imagen %}
   {{detalle_post.imagen}}

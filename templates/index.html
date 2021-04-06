@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 
   </head>
 
@@ -73,6 +73,26 @@
       </div>
     </header>
 
+    {% block barra_busqueda %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 search">
+            <form method="get">
+              <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  <!-- El value={{request.GET.buscar}} se utiliza para que el valor se quede y no desaparezca de la barra de busqueda cuando se refresca la página -->
+                  <input type="text" class="form-control" placeholder="Buscar..." name="buscar" value="{{request.GET.buscar}}">
+                  <span class="input-group-list">
+                    <i class="icon icon-search"></i>
+                    <button type="submit" class="boton btn-success" name="button">Buscar</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endblock barra_busqueda %}
     <!-- Main Content -->
     <div class="container">
       <div class="row">
