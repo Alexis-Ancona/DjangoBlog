@@ -13,7 +13,7 @@ def home(request):
             Q(titulo__icontains = queryset) |
             Q(descripcion__icontains = queryset)
         ).distinct()
-    paginator = Paginator(posts,1)
+    paginator = Paginator(posts,2)
     page = request.GET.get("page")
     posts = paginator.get_page(page)
     ctx = {"posts": posts}
